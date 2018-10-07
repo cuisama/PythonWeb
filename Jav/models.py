@@ -6,7 +6,8 @@ from django.db.models import CharField, TextField, IntegerField
 
 class Video(models.Model):
 
-    id = IntegerField()
+    # (models.E004) 'id' can only be used as a field name if the field also sets 'primary_key=True'.
+    # id = IntegerField()
     title = TextField()
     url = CharField(max_length=60)
     number = CharField(max_length=10)
@@ -18,3 +19,6 @@ class Video(models.Model):
     review = CharField(max_length=5)
     genres = TextField()
     cast = TextField()
+
+    class Meta:
+        db_table = "video"

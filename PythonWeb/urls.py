@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from Jav.views import main
+from Jav.views import main, search
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('jav/main', main),
+    path('jav/search', search),
 ]

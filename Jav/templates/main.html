@@ -16,18 +16,50 @@
     <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid">
 
-        <form action="">
+        <form action="search" method="post" style="margin: 30px 10px">
+            {% csrf_token %}
             <div class="col-sm-3 my-1">
-                <label class="sr-only" for="inlineFormInputGroupUsername">Username</label>
+                <label class="sr-only" for="number"></label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">番号</div>
+                    </div>
+                    <input type="text" class="form-control" id="number" name="number" value="{{ para.number }}">
+                </div>
+            </div>
+            <div class="col-sm-3 my-1">
+                <label class="sr-only" for="title"></label>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <div class="input-group-text">标题</div>
                     </div>
-                    <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Username">
+                    <input type="text" class="form-control" id="title" name="title" value="{{ para.title }}">
                 </div>
             </div>
+            <div class="col-sm-3 my-1">
+                <label class="sr-only" for="cast"></label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">演员</div>
+                    </div>
+                    <input type="text" class="form-control" name="cast" id="cast" value="{{ para.cast }}">
+                </div>
+            </div>
+            <div class="col-sm-3 my-1">
+                <label class="sr-only" for="maker"></label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">导演</div>
+                    </div>
+                    <input type="text" class="form-control" id="maker" name="maker" value="{{ para.maker }}">
+                </div>
+            </div>
+            <div class="col-sm-3 my-1">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
         </form>
 
         <table class="table table-striped">
@@ -41,10 +73,12 @@
             </thead>
             <tbody>
                 {% for foo in videos %}
-                    <td><a href="{{ foo.url }}" target="_blank">{{ foo.title }}</a></td>
-                    <td>{{ foo.date }}</td>
-                    <td>{{ foo.maker }}</td>
-                    <td>{{ foo.cast }}</td>
+                    <tr>
+                        <td><a href="{{ foo.url }}" target="_blank">{{ foo.title }}</a></td>
+                        <td>{{ foo.date }}</td>
+                        <td>{{ foo.maker }}</td>
+                        <td>{{ foo.cast }}</td>
+                    </tr>
                 {% endfor %}
             </tbody>
         </table>
