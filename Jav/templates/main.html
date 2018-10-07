@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jav-library</title>
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- popper.min.js 用于弹窗、提示、下拉菜单 -->
+    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+
+    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+
+        <form action="">
+            <div class="col-sm-3 my-1">
+                <label class="sr-only" for="inlineFormInputGroupUsername">Username</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">标题</div>
+                    </div>
+                    <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Username">
+                </div>
+            </div>
+        </form>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">标题</th>
+                <th scope="col">时间</th>
+                <th scope="col">导演</th>
+                <th scope="col">演员</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for foo in videos %}
+                    <td><a href="{{ foo.url }}" target="_blank">{{ foo.title }}</a></td>
+                    <td>{{ foo.date }}</td>
+                    <td>{{ foo.maker }}</td>
+                    <td>{{ foo.cast }}</td>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>
