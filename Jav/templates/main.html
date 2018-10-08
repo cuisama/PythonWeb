@@ -48,16 +48,35 @@
                 </div>
             </div>
             <div class="col-sm-3 my-1">
-                <label class="sr-only" for="maker"></label>
+                <label class="sr-only" for="genres"></label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">分类</div>
+                    </div>
+                    <input type="text" class="form-control" name="genres" id="genres" value="{{ para.genres }}">
+                </div>
+            </div>
+            <div class="col-sm-3 my-1 d-none">
+                <label class="sr-only" for="director"></label>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <div class="input-group-text">导演</div>
+                    </div>
+                    <input type="text" class="form-control" id="director" name="director" value="{{ para.director }}">
+                </div>
+            </div>
+            <div class="col-sm-3 my-1">
+                <label class="sr-only" for="maker"></label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">场商</div>
                     </div>
                     <input type="text" class="form-control" id="maker" name="maker" value="{{ para.maker }}">
                 </div>
             </div>
             <div class="col-sm-3 my-1">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="main" class="btn btn-primary">清空</a>
+                <button type="submit" class="btn btn-primary">查询</button>
             </div>
 
         </form>
@@ -75,7 +94,7 @@
                 {% for foo in videos %}
                     <tr>
                         <td><a href="{{ foo.url }}" target="_blank">{{ foo.title }}</a></td>
-                        <td>{{ foo.date }}</td>
+                        <td class="text-nowrap">{{ foo.date }}</td>
                         <td>{{ foo.maker }}</td>
                         <td>{{ foo.cast }}</td>
                     </tr>
