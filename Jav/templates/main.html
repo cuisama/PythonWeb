@@ -69,7 +69,7 @@
                 <label class="sr-only" for="maker"></label>
                 <div class="input-group">
                     <div class="input-group-prepend">
-                        <div class="input-group-text">场商</div>
+                        <div class="input-group-text">厂商</div>
                     </div>
                     <input type="text" class="form-control" id="maker" name="maker" value="{{ para.maker }}">
                 </div>
@@ -84,6 +84,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
+                <th scope="col"></th>
                 <th scope="col">标题</th>
                 <th scope="col">时间</th>
                 <th scope="col">导演</th>
@@ -93,6 +94,7 @@
             <tbody>
                 {% for foo in videos %}
                     <tr>
+                        <td><img src="{{ foo.img }}"></td>
                         <td><a href="{{ foo.url }}" target="_blank">{{ foo.title }}</a></td>
                         <td class="text-nowrap">{{ foo.date }}</td>
                         <td>{{ foo.maker }}</td>
