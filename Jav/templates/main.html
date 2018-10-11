@@ -78,7 +78,27 @@
                 <a href="main" class="btn btn-primary">清空</a>
                 <button type="submit" class="btn btn-primary">查询</button>
             </div>
-
+            
+        </form>
+        
+        <form action="search" method="post" style="margin: 30px 10px 0px 10px">
+        	{% csrf_token %}
+        	<input type="hidden" name="number" value="{{ para.number }}">
+			<input type="hidden" name="title" value="{{ para.title }}">
+			<input type="hidden" name="cast" value="{{ para.cast }}">
+			<input type="hidden" name="genres" value="{{ para.genres }}">
+			<input type="hidden" name="director" value="{{ para.director }}">
+			<input type="hidden" name="maker" value="{{ para.maker }}">
+       		<nav>
+			  <ul class="pagination">
+			    <li class="page-item active">
+			   		<input type="text" class="page-link" name="current" value="{{ para.current }}">
+			    </li>
+			    <li class="page-item">
+			    	<button class="page-link" type="submit">GO</button>
+			    </li>
+			  </ul>
+			</nav>
         </form>
 
         <table class="table table-striped">
@@ -94,7 +114,7 @@
             <tbody>
                 {% for foo in videos %}
                     <tr>
-                        <td><img src="{{ foo.img }}"></td>
+                        <td><!-- <img src="{{ foo.img }}"> --></td>
                         <td><a href="{{ foo.url }}" target="_blank">{{ foo.title }}</a></td>
                         <td class="text-nowrap">{{ foo.date }}</td>
                         <td>{{ foo.maker }}</td>
